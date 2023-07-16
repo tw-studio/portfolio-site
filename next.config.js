@@ -1,8 +1,21 @@
-/** @type {import('next').NextConfig} */
 ////
 ///
 // next.config.js
 
+const withMDX = require('@next/mdx')({
+  extension: /\.mdx?$/,
+  options: {
+    // If you use remark-gfm, you'll need to use next.config.mjs
+    // as the package is ESM only
+    // https://github.com/remarkjs/remark-gfm#install
+    remarkPlugins: [],
+    rehypePlugins: [],
+    // If you use `MDXProvider`, uncomment the following line.
+    providerImportSource: '@mdx-js/react',
+  },
+})
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
     dirs: [
@@ -20,6 +33,7 @@ const nextConfig = {
     'page.ts',
     'page.jsx',
     'page.js',
+    'page.mdx',
     'api.tsx',
     'api.ts',
     'api.jsx',
@@ -27,7 +41,7 @@ const nextConfig = {
   ],
   reactStrictMode: true,
   
-  webpack: (config/*, { isServer }*/) => {
+  webpack: (config) => {
 
     // Add TypeScript loader
     config.module.rules.push({
@@ -41,16 +55,14 @@ const nextConfig = {
     // Resolve .ts and .tsx extensions
     config.resolve.extensions.push('.ts', '.tsx')
 
-    // if (!isServer) {
     config.resolve.fallback = { // eslint-disable-line no-param-reassign
       crypto: require.resolve('crypto-browserify'),
       process: 'process/browser',
       stream: require.resolve('stream-browserify'),
     }
-    // }
     
     return config
   },
 }
 
-module.exports = nextConfig
+module.exports = withMDX(nextConfig)

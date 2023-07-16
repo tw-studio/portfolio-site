@@ -40,13 +40,13 @@ describe('Lockpage', () => {
     }
     act(() => {
       mockDepLockpage = render(<Lockpage httpClient={mockHttpClient} />)
-    });
-    ({ container } = mockDepLockpage)
+    })
+    ;({ container } = mockDepLockpage)
     mockDepLockbox = container.querySelector('input')
     act(() => {
       httpLockpage = render(<Lockpage httpClient={superagent} />)
-    });
-    ({ container } = httpLockpage)
+    })
+    ;({ container } = httpLockpage)
     httpLockbox = container.querySelector('input')
   })
 

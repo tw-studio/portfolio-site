@@ -46,8 +46,8 @@ describe('Lockbox', () => {
           placeholder={placeholderDefault}
         />,
       )
-    });
-    ({ container } = renderedLockbox)
+    })
+    ;({ container } = renderedLockbox)
     inputBox = container.querySelector('input')
   })
 

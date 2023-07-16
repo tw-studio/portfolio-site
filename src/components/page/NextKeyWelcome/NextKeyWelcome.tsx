@@ -103,9 +103,9 @@ const Main = styled('div', {
 
 const Title = styled('h1', {
   color: '$dark',
-  fontFamily: 'PixL',
+  fontFamily: 'Lato',
   fontPx: 60,
-  fontWeight: 'bold',
+  fontWeight: 900,
   lineHeight: '1.15',
   margin: '0',
   paddingTop: '4rem',
@@ -117,9 +117,9 @@ const Title = styled('h1', {
 
 const Subtitle = styled('p', {
   color: '$dark',
-  fontFamily: 'PixL',
+  fontFamily: 'Lato',
   fontPx: 32,
-  fontWeight: 'normal',
+  fontWeight: 'Bold',
   lineHeight: 1.5,
   marginTop: '1rem',
   textAlign: 'center',

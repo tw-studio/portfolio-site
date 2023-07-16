@@ -2,6 +2,16 @@
 ///
 // stitches.config.ts
 
+import {
+  blue,
+  gray,
+  indigo,
+  slate,
+  blueDark,
+  grayDark,
+  indigoDark,
+  slateDark,
+} from '@radix-ui/colors'
 import { createStitches } from '@stitches/react'
 import type * as Stitches from '@stitches/react'
 
@@ -16,26 +26,52 @@ export const {
   styled,
   theme,
 } = createStitches({
-  prefix: 'nextkey',
+  prefix: 'Ѧ',
   theme: {
     // https://stitches.dev/docs/tokens
     colors: {
+      ...blue,
+      ...gray,
+      ...indigo,
+      ...slate,
       black: '#000000',
       borderLight: '#eaeaea',
       dark: '#333333',
+      hiContrast: '$slate12',
+      imagePlaceholder: '#f4f6f9',
+      none: '#00000000',
+      oneNote: '#7f397b',
+      oneNote2: '#713b79',
+      oneNote3: '#833C7E',
+      oneNote4: '#7F387A',
+      oneNoteLight: '##a97b96',
+      oneNoteLight1: '#BB8EB9',
+      oneNoteLight2: '#a35c9d',
+      oneNoteLight3: '##a97b96',
+      oneNoteLight4: '#c99bc4',
+      oneNoteLight5: '#f7f3f8',
+      outlineColor: '#00a7bd',
+      placeholder: '#dadde3',
       slateBrightD9: '#d9dbdf',
       slateBrightE9: '#e9ebef',
       slateBrightEC: '#eceef2',
       slateBrightF2: '#f2f4f8',
       slateBrightF4: '#f4f6f9',
-      imagePlaceholder: '#f4f6f9',
-      none: '#00000000',
-      placeholder: '#dadde3',
+      slateBrightF5: '#f5f5f7',
+      slateBrightF6: '#f6f8fb',
+      slateBrightF7: '#f7f7f9',
+      slateBrightF9: '#f9f9fb',
+      slateBrightFB: '#fbfbfd',
       slateMedium: '#6e7074',
+      textDark: '#2a2a2a',
+      textLight: '#ffffff',
       textPlaceholder: '#dadde3',
+      textPrimary: '#2a2a2a',
+      textSecondary: '#6e7074',
       theme0: '#0070f3',
       theme1: '#1aa854',
       transparent: '#00000000',
+      white: '#ffffff',
     },
     fontSizes: {},
     fonts: {},
@@ -44,10 +80,15 @@ export const {
     letterSpacings: {},
     sizes: {},
     space: {
+      contentPaddingDesktop: '40px',
+      contentPaddingMid: '60px',
+      contentPaddingFull: '80px',
+      contentPaddingMobile: '21px',
       contentWidthDesktop: '704px',
       contentWidthMid: '840px',
-      contentWidthFull: '980px',
-      mobilePadding: '21px',
+      contentWidthFull: '1100px',
+      maxTextWidth: '770px',
+      // contentWidthFull: '980px',
     },
     borderWidths: {},
     borderStyles: {},
@@ -57,15 +98,16 @@ export const {
     transitions: {},
   },
   media: {
-    sm: '(min-width: 640px)',
-    md: '(min-width: 768px)',
-    lg: '(min-width: 1024px)',
-    xl: '(min-width: 1280px)',
-    xxl: '(min-width: 1536px)',
+    midMobile: '(min-width: 400px)',
     largeMobile: '(min-width: 550px)',
     desktop: '(min-width: 744px)',
     mid: '(min-width: 936px)',
     full: '(min-width: 1128px)',
+    wide: '(min-width: 1800px)',
+    motion: '(prefers-reduced-motion)',
+    hover: '(any-hover: hover)',
+    dark: '(prefers-color-scheme: dark)',
+    light: '(prefers-color-scheme: light)',
   },
   utils: {
     ////
@@ -200,5 +242,15 @@ export const {
     linearGradient: (value: string) => ({
       backgroundImage: `linear-gradient(${value})`,
     }),
+  },
+})
+
+export const darkTheme = createTheme('dark-theme', {
+  colors: {
+    ...blueDark,
+    ...grayDark,
+    ...indigoDark,
+    ...slateDark,
+    hiContrast: '$slate12',
   },
 })

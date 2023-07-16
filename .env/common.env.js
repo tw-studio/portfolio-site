@@ -14,7 +14,8 @@ const envCommon = {
   JWT_SUB_GUEST: '',
   JWT_SUB_MAIN: '',
   KEY_NAME: 'theKey',
-  LOCKPAGE_DIR: 'lockpage/export',
+  LOCKPAGE_EXPORT_DIR: 'lockpage/export',
+  LOCKPAGE_PUBLIC_DIR: 'lockpage/public',
   NEXT_PUBLIC_LOGIN_PATH: '/enter/',
   NODE_TLS_REJECT_UNAUTHORIZED: '1',
   REGION: 'us-west-2',
@@ -27,6 +28,7 @@ const envCommon = {
   USE_DATABASE: '',
   USE_HTTPS_FROM_S3: '',
   USE_HTTPS_LOCAL: '0',
+  USE_NEXTKEY: '',
 }
 
 module.exports = envCommon

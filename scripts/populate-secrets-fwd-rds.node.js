@@ -74,6 +74,7 @@ ssm
       const useDatabase = ''
       const useHttpsFromS3 = ''
       const useHttpsLocal = ''
+      const useNextKey = ''
 
       module.exports = {
         dbProdDatabaseName,
@@ -94,6 +95,7 @@ ssm
         useDatabase,
         useHttpsFromS3,
         useHttpsLocal,
+        useNextKey,
       }
     `)
 

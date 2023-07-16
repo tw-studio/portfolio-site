@@ -1,0 +1,8 @@
+/* PixL-regular */
+@font-face {
+  font-family: 'PixL';
+  font-display: 'swap';
+  font-style: normal;
+  font-weight: 400;
+  src: url(./pixl.regular.woff2) format('woff2');
+}

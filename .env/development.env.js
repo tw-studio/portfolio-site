@@ -18,6 +18,7 @@ const {
   useDatabase,
   useHttpsFromS3,
   useHttpsLocal,
+  useNextKey,
 } = require('./.secrets.js')
 
 const dbPort = process.env.OVERRIDE_DB_PORT ?? '5432'
@@ -46,6 +47,7 @@ const envDevelopment = {
   USE_DATABASE: useDatabase ?? '0',
   USE_HTTPS_FROM_S3: useHttpsFromS3 ?? '',
   USE_HTTPS_LOCAL: useHttpsLocal ?? '0',
+  USE_NEXTKEY: useNextKey ?? '1',
 }
 
 module.exports = envDevelopment

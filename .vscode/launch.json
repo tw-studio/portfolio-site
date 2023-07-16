@@ -72,12 +72,12 @@
       "processId": "${command:PickProcess}"
     },
     {
-      "name": "pnpm start:dev",
+      "name": "pnpm start:dev:ts",
       "type": "node",
       "request": "launch",
       "cwd": "${workspaceFolder}",
       "runtimeExecutable": "pnpm",
-      "runtimeArgs": ["start:dev"]
+      "runtimeArgs": ["start:dev:ts"]
     }
   ]
 }

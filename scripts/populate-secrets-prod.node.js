@@ -33,6 +33,7 @@ const secrets = {
   secretKeyMain: '',
   useDatabase: '',
   useHttpsFromS3: '',
+  useNextKey: '',
 }
 
 // |2| Get parameters from SSM in production (in batches of 10...)
@@ -52,6 +53,7 @@ const getSecretsCommand = new GetParametersCommand({
     `${ssmPath}secretJWT`,
     `${ssmPath}secretKeyGuest`,
     `${ssmPath}secretKeyMain`,
+    `${ssmPath}useNextKey`,
   ],
   WithDecryption: true,
 })
@@ -162,6 +164,7 @@ ssm
       const useDatabase = '${secrets.useDatabase}'
       const useHttpsFromS3 = '${secrets.useHttpsFromS3}'
       const useHttpsLocal = '' // not used in production
+      const useNextKey = '${secrets.useNextKey}'
 
       module.exports = {
         dbProdDatabaseName,
@@ -182,6 +185,7 @@ ssm
         useDatabase,
         useHttpsFromS3,
         useHttpsLocal,
+        useNextKey,
       }
     `)
 

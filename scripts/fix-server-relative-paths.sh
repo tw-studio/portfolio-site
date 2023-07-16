@@ -20,10 +20,9 @@ if [ ! -f "$SERVER_PATH" ]; then
   exit 1
 fi
 
-# |1| Fix lockpage path
-perl -i -pe 's#"\.\.\/"#"../../../"#g' $SERVER_PATH
-
-# |2| Fix certificates path
+# |1| Fix relative paths
+perl -i -pe 's#"\.\.\/"#"../../../"#g' $SERVER_PATH # lockpage path
+perl -i -pe 's#\.\.\/public#../../../public#g' $SERVER_PATH # public path
 # perl -i -pe "s#'\.\.\/\.certificates#'../../../.certificates#g" $SERVER_PATH
 
 # done

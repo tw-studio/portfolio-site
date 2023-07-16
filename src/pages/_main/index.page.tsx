@@ -2,53 +2,30 @@
 ///
 // main › index.page.tsx
 
-import { GetServerSideProps } from 'next'
+import { Box } from '@components/base'
+import AboutMe from '@components/sections/AboutMe'
+import Contact from '@components/sections/Contact'
+import Footer from '@components/sections/Footer'
+import HeroBackground from '@components/sections/HeroBackground'
+import HeroIntro from '@components/sections/HeroIntro'
+import Portfolio from '@components/sections/Portfolio'
+import SiteHeader from '@components/sections/SiteHeader'
+import TitleAndMetaTags from '@components/sections/TitleAndMetaTags'
 
-import { styled } from '@/stitches.config'
-import cleanUpDataArray from '@/utils/clean-up-data-array'
-import NextKeyWelcome, { type NextKeyBenefitData } from '@components/page/NextKeyWelcome'
-import NextKeyBenefit from '@models/NextKeyBenefit'
-import { demoNextKeyBenefitJson } from '@resources/DemoContent'
-
-////
-///
-// MARK: Types
-
-type IndexProps = {
-  nextKeyBenefitData: NextKeyBenefitData[]
-}
-
-////
-///
-// MARK: Index
-
-export default function Index({ nextKeyBenefitData }: IndexProps) {
+export default function Index() {
   return (
-    <IndexContainer>
-      <NextKeyWelcome index="0" nextKeyBenefitData={nextKeyBenefitData} />
-    </IndexContainer>
+    <>
+      <TitleAndMetaTags />
+      <Box css={{ paddingBottom: '80px' }}>
+        <SiteHeader transparent />
+        <HeroBackground>
+          <HeroIntro />
+        </HeroBackground>
+        <Portfolio />
+        <AboutMe />
+        <Contact />
+        <Footer />
+      </Box>
+    </>
   )
-}
-
-const IndexContainer = styled('div', {})
-
-////
-///
-// MARK: getServerSideProps
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  let rawNextKeyBenefitJson
-  try {
-    const rawNextKeyBenefitData = await NextKeyBenefit.query()
-    rawNextKeyBenefitJson = JSON.parse(JSON.stringify(rawNextKeyBenefitData))
-    // console.log('Loading demo data from database...')
-  } catch (error) {
-    // Hardcode fallback for demo purposes only (ex: no database connection)
-    rawNextKeyBenefitJson = demoNextKeyBenefitJson
-    // console.log('Loading demo data from file...')
-  }
-  
-  const nextKeyBenefitData = cleanUpDataArray(rawNextKeyBenefitJson, 'fk_nextkey_benefit_id')
-
-  return { props: { nextKeyBenefitData } }
 }

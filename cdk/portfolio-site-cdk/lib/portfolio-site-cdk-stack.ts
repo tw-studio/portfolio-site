@@ -54,7 +54,6 @@ type PortfolioSiteStackProps = StackProps & {
   artifactBucketName: string,
   artifactBucketExists: boolean,
 }
-// declare var process: { env: { [key: string]: string } }
 
 export class PortfolioSiteStack extends Stack {
   constructor(scope: Construct, id: string, props?: PortfolioSiteStackProps) {
@@ -240,6 +239,7 @@ export class PortfolioSiteStack extends Stack {
       allowAllOutbound: true,
     })
     ec2SecurityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(443), 'Allow HTTPS any IPv4')
+    ec2SecurityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(80), 'Allow HTTP any IPv4')
     // ec2SecurityGroup.addIngressRule(ec2.Peer.anyIpv4(), ec2.Port.tcp(22), 'Allow SSH any IPv4')
     
     // |2| Create IAM role for EC2 and CodeDeploy 

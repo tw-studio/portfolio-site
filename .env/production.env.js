@@ -22,6 +22,7 @@ const {
   useDatabase,
   useHttpsFromS3,
   useHttpsLocal,
+  useNextKey,
 } = require('./.production.secrets.js') // populated by deploy script
 
 const port = process.env.OVERRIDE_PORT ?? (useHttpsFromS3 === '1' ? '443' : '80')
@@ -50,6 +51,7 @@ const envProduction = {
   USE_DATABASE: useDatabase ?? '0',
   USE_HTTPS_FROM_S3: useHttpsFromS3 ?? '',
   USE_HTTPS_LOCAL: useHttpsLocal ?? '0',
+  USE_NEXTKEY: useNextKey ?? '1',
 }
 
 module.exports = envProduction

@@ -49,7 +49,7 @@ if [[ -f server/.localcerts/localhost.key && -f server/.localcerts/localhost.crt
   echo -e "$green$done$color_reset Setup for local https complete"
   exit 0
 else
-  echo -e "$red$xmark$color_reset localhost.key and localhost.crt found in server/"
+  echo -e "$red$xmark$color_reset localhost.key and localhost.crt not found in server/"
 fi
 
 # |4| Check mkcert is installed
